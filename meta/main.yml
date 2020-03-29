@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Sylvain Prat
+  role_name: snapraid
+  description: Install and configure SnapRAID — A backup program for disk arrays
+  license: MIT
+  company: none
+  min_ansible_version: 2.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - snapraid
+    - disk
+    - backup
+    - array
+
+dependencies: []
