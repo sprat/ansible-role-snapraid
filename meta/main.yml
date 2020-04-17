@@ -5,7 +5,7 @@ galaxy_info:
   description: Install and configure SnapRAID — A backup program for disk arrays
   license: MIT
   company: none
-  min_ansible_version: 2.9
+  min_ansible_version: 2.3
   platforms:
     - name: Ubuntu
       versions:

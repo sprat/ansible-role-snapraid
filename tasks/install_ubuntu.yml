@@ -1,0 +1,19 @@
+---
+- name: Install dirmngr
+  become: yes
+  apt:
+    name: dirmngr
+    state: present
+    update_cache: yes
+
+- name: Add SnapRAID repository
+  become: yes
+  apt_repository:
+    repo: ppa:tikhonov/snapraid
+
+- name: Install SnapRAID
+  become: yes
+  apt:
+    name: snapraid
+    state: present
+    update_cache: yes
