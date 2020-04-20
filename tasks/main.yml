@@ -5,3 +5,9 @@
   tags:
     - snapraid
     - snapraid_install
+
+- name: Configure
+  import_tasks: configure.yml
+  tags:
+    - snapraid
+    - snapraid_configure

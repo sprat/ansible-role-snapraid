@@ -1,0 +1,6 @@
+---
+- name: Configure SnapRAID
+  become: yes
+  template:
+    src: etc/snapraid.conf.j2
+    dest: /etc/snapraid.conf
