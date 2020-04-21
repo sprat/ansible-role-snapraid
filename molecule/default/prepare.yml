@@ -2,17 +2,6 @@
 - name: Prepare
   hosts: all
   tasks:
-    - name: Create directories
-      become: yes
-      file:
-        path: "{{ item }}"
-        state: directory
-      loop:
-        - /mnt/data1
-        - /mnt/data2
-        - /mnt/parity1
-        - /mnt/parity2
-
     - name: Create data files
       become: yes
       copy:
@@ -23,3 +12,5 @@
           content: test1
         - path: /mnt/data2/file2.txt
           content: test2
+        - path: /mnt/data3/file3.txt
+          content: test3
