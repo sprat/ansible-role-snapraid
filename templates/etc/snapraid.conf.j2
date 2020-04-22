@@ -1,12 +1,12 @@
 {{ ansible_managed | comment }}
 
 {% for disk in snapraid_data_disks %}
-data {{ disk.name | default(disk.path | basename) }} {{ disk.path }}
+data {{ disk.name }} {{ disk.path }}
 {% endfor %}
 
 {% for disk in snapraid_parity_disks %}
-{% set prefix = '%d-' % loop.index if loop.index > 1 else '' %}
-{{ prefix }}parity {{ disk.path }}/snapraid.{{ prefix }}parity
+{% set disk_name = '%d-parity' % loop.index if loop.index > 1 else 'parity' %}
+{{ disk_name }} {{ disk.path }}/snapraid.{{ disk_name }}
 {% endfor %}
 
 {% for file in snapraid_content_files %}
@@ -23,18 +23,24 @@ exclude {{ exclude }}
 {% if snapraid_blocksize is defined %}
 blocksize {{ snapraid_blocksize }}
 {% endif %}
-
 {% if snapraid_hashsize is defined %}
 hashsize {{ snapraid_hashsize }}
 {% endif %}
-
 {% if snapraid_autosave is defined %}
 autosave {{ snapraid_autosave }}
 {% endif %}
+{% if snapraid_pool is defined %}
+pool {{ snapraid_pool }}
+{% endif %}
 
-#pool /pool
-
-#smartctl d1 -d sat %s
-#smartctl d2 -d usbjmicron %s
-#smartctl parity -d areca,1/1 /dev/sg0
-#smartctl 2-parity -d areca,2/1 /dev/sg0
+{% for disk in snapraid_data_disks %}
+{% if disk.smartctl_options is defined %}
+smartctl {{ disk.name }} {{ disk.smartctl_options }}
+{% endif %}
+{% endfor %}
+{% for disk in snapraid_parity_disks %}
+{% if disk.smartctl_options is defined %}
+{% set disk_name = '%d-parity' % loop.index if loop.index > 1 else 'parity' %}
+smartctl {{ disk_name }} {{ disk.smartctl_options }}
+{% endif %}
+{% endfor %}
