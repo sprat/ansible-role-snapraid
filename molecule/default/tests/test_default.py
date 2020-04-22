@@ -15,5 +15,15 @@ def read_reference_file():
 
 def test_configuration_file(host):
     reference = read_reference_file()
-    configuration = host.file("/etc/snapraid.conf").content_string
+    configuration = host.file('/etc/snapraid.conf').content_string
     assert configuration == reference
+
+
+def test_sync(host):
+    cmd = host.run('snapraid sync')
+    assert cmd.rc == 0
+    assert host.file('/mnt/data1/snapraid.content').exists
+    assert host.file('/mnt/data2/snapraid.content').exists
+    assert host.file('/mnt/data3/snapraid.content').exists
+    assert host.file('/mnt/parity1/snapraid.parity').exists
+    assert host.file('/mnt/parity2/snapraid.2-parity').exists
