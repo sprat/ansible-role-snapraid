@@ -23,9 +23,11 @@ None.
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - role: sprat.snapraid
+```yaml
+- hosts: servers
+  roles:
+    - role: sprat.snapraid
+```
 
 License
 -------
@@ -36,6 +38,7 @@ Author Information
 ------------------
 
 This role was created in 2020 by [Sylvain Prat](https://github.com/sprat).
+
 
 [travis_image]:  https://travis-ci.com/sprat/ansible-role-snapraid.svg?branch=master
 [travis_link]:   https://travis-ci.com/sprat/ansible-role-snapraid
