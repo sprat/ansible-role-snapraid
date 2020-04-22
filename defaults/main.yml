@@ -62,3 +62,4 @@ snapraid_excludes:
 # symbolic links.
 # This directory must be outside the array.
 #snapraid_pool: /pool
+snapraid_pool_permissions: '0755' 

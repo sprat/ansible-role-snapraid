@@ -27,3 +27,11 @@ def test_sync(host):
     assert host.file('/mnt/data3/snapraid.content').exists
     assert host.file('/mnt/parity1/snapraid.parity').exists
     assert host.file('/mnt/parity2/snapraid.2-parity').exists
+
+
+def test_pool(host):
+    cmd = host.run('snapraid pool')
+    assert cmd.rc == 0
+    assert host.file('/mypool/file1.txt').exists
+    assert host.file('/mypool/file2.txt').exists
+    assert host.file('/mypool/file3.txt').exists

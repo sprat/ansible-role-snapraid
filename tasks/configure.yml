@@ -4,3 +4,11 @@
   template:
     src: etc/snapraid.conf.j2
     dest: /etc/snapraid.conf
+
+- name: Create the pool directory
+  become: yes
+  file:
+    path: "{{ snapraid_pool }}"
+    state: directory
+    mode: "{{ snapraid_pool_permissions }}"
+  when: snapraid_pool is defined
