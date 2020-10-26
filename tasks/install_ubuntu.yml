@@ -9,7 +9,7 @@
 - name: Add SnapRAID repository
   become: yes
   apt_repository:
-    repo: ppa:tikhonov/snapraid
+    repo: ppa:syprat/snapraid
 
 - name: Install SnapRAID
   become: yes
