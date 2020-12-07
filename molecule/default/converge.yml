@@ -18,7 +18,7 @@
       - /mnt/data1/snapraid.content
       - /mnt/data2/snapraid.content
       - /mnt/data3/snapraid.content
-    snapraid_exclude_hidden: yes
+    snapraid_exclude_hidden: true
     snapraid_excludes:
       - /tmp/
       - /lost+found/
