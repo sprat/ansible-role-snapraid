@@ -1,8 +1,8 @@
 Ansible Role: snapraid
 ======================
 
-[![Ansible Galaxy][galaxy_image]][galaxy_link]
-[![Build Status][travis_image]][travis_link]
+[![Build Status][build_badge]][build_link]
+[![Ansible Galaxy][galaxy_badge]][galaxy_link]
 
 Install and configure SnapRAID — A backup program for disk arrays
 
@@ -14,7 +14,7 @@ None.
 Role Variables
 --------------
 
-See `defaults/main.yml`.
+See [defaults/main.yml](defaults/main.yml).
 
 Dependencies
 ------------
@@ -25,7 +25,7 @@ Example Playbook
 ----------------
 
 ```yaml
-- hosts: servers
+- hosts: server
   roles:
     - role: sprat.snapraid
 ```
@@ -41,7 +41,7 @@ Author Information
 This role was created in 2020 by [Sylvain Prat](https://github.com/sprat).
 
 
-[travis_image]:  https://travis-ci.com/sprat/ansible-role-snapraid.svg?branch=master
-[travis_link]:   https://travis-ci.com/sprat/ansible-role-snapraid
-[galaxy_image]:  https://img.shields.io/badge/galaxy-sprat.snapraid-660198.svg?style=flat
-[galaxy_link]:   https://galaxy.ansible.com/sprat/snapraid
+[build_badge]:  https://img.shields.io/github/workflow/status/sprat/ansible-role-snapraid/CI
+[build_link]:   https://github.com/sprat/ansible-role-snapraid/actions?query=workflow:CI
+[galaxy_badge]: https://img.shields.io/ansible/role/51519
+[galaxy_link]:  https://galaxy.ansible.com/sprat/snapraid
