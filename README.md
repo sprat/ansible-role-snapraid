@@ -28,6 +28,21 @@ Example Playbook
 - hosts: server
   roles:
     - role: sprat.snapraid
+  vars:
+    snapraid_data_disks:
+      - name: data1
+        path: /mnt/data1
+      - name: data2
+        path: /mnt/data2
+        smartctl_options: -d sat %s
+    snapraid_parity_disks:
+      - path: /mnt/parity1
+    snapraid_content_files:
+      - /mnt/data1/snapraid.content
+      - /mnt/data2/snapraid.content
+    snapraid_excludes:
+      - /tmp/
+      - /lost+found/
 ```
 
 License
